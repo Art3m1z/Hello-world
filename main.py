@@ -1,16 +1,29 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import unittest
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def sum_of_x(x):
+    return x + 1
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('I love programming')
+def sum_of_three_x(x1, x2, x3):
+    s1 = sum_of_x(x1)
+    s2 = sum_of_x(x2)
+    s3 = sum_of_x(x3)
+    return s1 + s2 + s3
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+class TestSumOfThreeX(unittest.TestCase):
+    def test_sum(self):
+        self.assertEqual(sum_of_three_x(3, 8, 4), 18)
+
+
+def letters_combination(x1, x2, x3):
+    return "result of"" " + x1 + x2 + x3
+
+
+class TestLettersCombination(unittest.TestCase):
+    def test_sum(self):
+        self.assertEqual(letters_combination("A", "B", "C"), "result of ABC")
+
+    def test_string(self):
+        self.assertEqual(letters_combination("v", "n", "c"), "result of vnc")
