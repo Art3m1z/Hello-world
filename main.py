@@ -1,29 +1,20 @@
 import unittest
+from functools import reduce
+
+def array_calculation(items):
+    # return reduce(lambda x, y: x + y, items)
+    return reduce(reduce_sum, items, 0)
+def reduce_sum(x, y):
+    print(x, y)
+    return x + 1 + y
 
 
-def sum_of_x(x):
-    return x + 1
 
 
-def sum_of_three_x(x1, x2, x3):
-    s1 = sum_of_x(x1)
-    s2 = sum_of_x(x2)
-    s3 = sum_of_x(x3)
-    return s1 + s2 + s3
-
-
-class TestSumOfThreeX(unittest.TestCase):
+class TestArrayCalculation(unittest.TestCase):
     def test_sum(self):
-        self.assertEqual(sum_of_three_x(3, 8, 4), 18)
+        self.assertEqual(array_calculation([3, 7, 8, 12]), 34)
 
+    # def test_sum_2(self):
+    #     self.assertEqual(array_calculation([3]), 4)
 
-def letters_combination(x1, x2, x3):
-    return "result of"" " + x1 + x2 + x3
-
-
-class TestLettersCombination(unittest.TestCase):
-    def test_sum(self):
-        self.assertEqual(letters_combination("A", "B", "C"), "result of ABC")
-
-    def test_string(self):
-        self.assertEqual(letters_combination("v", "n", "c"), "result of vnc")
